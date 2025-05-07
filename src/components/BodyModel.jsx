@@ -9,10 +9,10 @@ function Organ({ name, position, highlight }) {
 
   useFrame((state) => {
     if (highlight && meshRef.current) {
-      const pulse = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.1; // Increased pulse strength
+      const pulse = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.1;
       meshRef.current.scale.set(pulse, pulse, pulse);
     } else if (meshRef.current) {
-      meshRef.current.scale.set(1, 1, 1); // Reset scale when not highlighted
+      meshRef.current.scale.set(1, 1, 1);
     }
   });
 
@@ -22,7 +22,7 @@ function Organ({ name, position, highlight }) {
       <meshStandardMaterial
         color={color}
         emissive={highlight ? color : "#000000"}
-        emissiveIntensity={highlight ? 0.5 : 0} // Increased emissive intensity
+        emissiveIntensity={highlight ? 0.5 : 0}
         metalness={0.2}
         roughness={0.7}
       />
